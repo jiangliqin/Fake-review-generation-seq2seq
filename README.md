@@ -4,8 +4,8 @@
 
 
 ### 环境
-python 3.6
-tensorflow >= 1.10
+- python 3.6
+- tensorflow >= 1.10
 
 ### 运行方法
 准备好训练数据，样例已经放在"works/word2sen/data"中。\
