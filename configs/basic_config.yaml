@@ -1,0 +1,41 @@
+configuration:
+  Name: basic_seq2seq
+  workspace: ./works/word2sen/
+  tf_board: ./works/word2sen/tfboard/
+  embeddings:
+    embed_size: 256
+    vocab_size: 5000
+  encoder:
+    bidirectional: True
+    cell_type: RES_LSTM
+    num_layers: 2
+    num_units: 256
+  decoder:
+    attn_num_units: 512
+    cell_type: LSTM
+    num_layers: 2
+    num_units: 512
+    state_pass: False
+    infer_max_iter: 70
+  inference:
+    is_beam_search: True
+    beam_size: 5
+    infer_batch_size: 1
+    infer_source_file: ./works/word2sen/data/dev_source.txt
+    infer_source_max_length: 70
+    output_path: ./works/word2sen/results/prediciton.txt
+  training:
+    batch_size: 10
+    checkpoint_every: 500
+    train_source_file: ./works/word2sen/data/train_source.txt
+    train_target_file: ./works/word2sen/data/train_target.txt
+    dev_source_file: ./works/word2sen/data/dev_source.txt
+    dev_target_file: ./works/word2sen/data/dev_target.txt
+    max_length: 70
+    gpu_fraction: 0.5
+    gpu_id: '6'
+    l2_regularize: null
+    learning_rate: 0.001
+    max_checkpoints: 100
+    print_every: 1
+    train_steps: 100000
